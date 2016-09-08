@@ -60,7 +60,7 @@ h4
 .main-info
   flex: 2
   section
-    margin: 40px 0
+    margin: 20px 0
   section:first-child
     margin: 0
 
@@ -120,7 +120,7 @@ li
   li:first-child
     width: 6em
 
-.projects-container, .education-container
+.projects-container, .education-container, .experience-container
   p
     font-size: 13px
     margin: 0
@@ -139,7 +139,7 @@ li
       font-size: 12px
       .dash:before
         content: '- '
-        margin-left: -0.5em;
+        margin-left: -0.5em
     li:before
       padding-left: -3em
     li:first-child
@@ -156,6 +156,20 @@ li
 .education-container
   li
     margin: 20px 0
+
+.experience-container
+  .work-attributions
+    list-type: disc
+    margin-top: 10px
+    li
+      font-size: 12px
+      margin: 5px 0
+      padding-left: 20px
+      .dash:before
+        content: '- '
+        margin-left: -0.5em
+  img
+    margin-right: 4px
 
 @page
     size: A4
