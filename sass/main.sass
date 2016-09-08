@@ -27,22 +27,22 @@ body
   width: 100%
 
 .header
+  display: flex
+
+.header
   align-items: center
   display: flex
   flex-direction: column
 
-h1
-  font-size: 56px
-  padding: 0
-  margin: 15px 0 0
-  font-weight: 300
+  h1, h4
+    font-weight: 300
 
-.first-name
-  font-weight: 200
+  h1
+    font-size: 56px
+    margin: 15px 0 0
 
-h4
-  margin: 0
-  font-weight: 300
+  .first-name
+    font-weight: 200
 
 .info-container
   height: 100%
@@ -64,20 +64,21 @@ h4
   section:first-child
     margin: 0
 
+h2, h4
+    margin: 0
+
 h2, h3
   text-transform: uppercase
 
 h2
   font-weight: 100
   font-size: 25px
-  margin: 0
 
 h3
   font-weight: 400
   color: lighten(black, 30%)
   margin: 10px 0
   font-size: 16px
-
 
 ul
   list-style: none
@@ -86,7 +87,7 @@ ul
   font-weight: 300
 
 li
-    line-height: 1.3em
+  line-height: 1.3em
 
 .side-info
   section
@@ -104,13 +105,11 @@ li
 .skills-container
   ul
     display: flex
-    flex-direction: row
     flex-wrap: wrap
   li
     margin-right: 3px
 
 .skills-container, .interests-container
-  font-weight: 300
   li:before
     content: '• '
 
@@ -123,7 +122,8 @@ li
 .projects-container, .education-container, .experience-container
   p
     font-size: 13px
-    margin: 0
+    font-weight: 300
+    margin: 0 5px 10px
   img
     margin-right: 2px
   h3
@@ -132,42 +132,34 @@ li
     margin-right: 5px
   .second-class
     font-size: 13px
-  .single-project
-    li
-      margin: 5px 0
-      padding-left: 20px
-      font-size: 12px
-      .dash:before
-        content: '- '
-        margin-left: -0.5em
-    li:before
-      padding-left: -3em
-    li:first-child
-      padding-left: 0
-      font-size: 13px
-
-    :content
-      padding: 22px
 
 .list-of-projects
   padding-left: 40px
   list-style: disc
+
+.single-project
+  li:before
+    padding-left: -3em
+  li:first-child
+    padding-left: 0
+    font-size: 13px
+
+.single-project, .work-attributions
+  li
+    margin: 5px 0
+    padding-left: 20px
+    font-size: 12px
+    .dash:before
+      content: '- '
+      margin-left: -0.5em
+  :content
+    padding: 22px
 
 .education-container
   li
     margin: 20px 0
 
 .experience-container
-  .work-attributions
-    list-type: disc
-    margin-top: 10px
-    li
-      font-size: 12px
-      margin: 5px 0
-      padding-left: 20px
-      .dash:before
-        content: '- '
-        margin-left: -0.5em
   img
     margin-right: 4px
 
