@@ -11,11 +11,10 @@ body
 .page
   width: 21cm
   min-height: 29.7cm
-  padding: 2cm 1cm 2cm
   margin: 2cm auto 2cm
   border: 1px #D3D3D3 solid
   border-radius: 5px
-  background: white
+  background: #fff
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
   position: relative
 
@@ -25,9 +24,6 @@ body
   left: 0
   height: 100%
   width: 100%
-
-.header
-  display: flex
 
 .header
   align-items: center
@@ -46,10 +42,8 @@ body
 
 .info-container
   height: 100%
-  flex: 3
   display: flex
-  flex-direction: row
-  margin-top: -10px
+  margin-top: -13px
 
 .main-info, .side-info
   padding: 2em
@@ -63,6 +57,10 @@ body
     margin: 20px 0
   section:first-child
     margin: 0
+
+.side-info
+  section
+    margin-bottom: 2em
 
 h2, h4
     margin: 0
@@ -88,10 +86,6 @@ ul
 
 li
   line-height: 1.3em
-
-.side-info
-  section
-    margin-bottom: 2em
 
 .links-container
   li
@@ -152,8 +146,6 @@ li
     .dash:before
       content: '- '
       margin-left: -0.5em
-  :content
-    padding: 22px
 
 .education-container
   li
