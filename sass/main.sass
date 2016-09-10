@@ -43,7 +43,7 @@ body
 .info-container
   height: 100%
   display: flex
-  margin-top: -13px
+  margin-top: -23px
 
 .main-info, .side-info
   padding: 2em
@@ -72,7 +72,7 @@ h2
   font-weight: 100
   font-size: 25px
 
-h3
+h3, a, a:visited
   font-weight: 400
   color: lighten(black, 30%)
   margin: 10px 0
@@ -90,8 +90,9 @@ li
 .links-container
   li
     font-weight: 100
-  a
+  a, a:visited
     font-weight: 300
+    font-size: 14px
     text-decoration: none
     color: lighten(black, 40%)
     text-transform: lowercase
@@ -119,28 +120,55 @@ li
   p
     font-size: 13px
     font-weight: 300
-    margin: 0 5px 10px
+    margin: 0 5px
   img
     margin-right: 2px
-  h3
+  h3, a, a:visited
     margin-bottom: 2px
+    font-size: 13px
   h3>img:nth-child(1)
     margin-right: 5px
-  .second-class
+
+.project-heading
+  display: flex
+  align-items: center
+  flex-direction: row
+  position: relative
+  margin-right: 1em
+
+  h3
+    margin: 0
+    padding: 0
+
+  a
+    text-decoration: none
+
+  p
+    margin: 0
+    font-size: 12px
+  li
+    right: 0em
     font-size: 13px
+
+  li:last-child
+    position: absolute
+
 
 .list-of-projects
   padding-left: 40px
   list-style: disc
 
 .single-project
-  li:before
-    padding-left: -3em
-  li:first-child
-    padding-left: 0
-    font-size: 13px
+  margin-bottom: 1em
+  // li:before
+  //   padding-left: -3em
 
-.single-project, .work-attributions
+
+  // li:first-child
+  //   padding-left: 0
+
+
+.project-bullet, .work-attributions
   li
     margin: 5px 0
     padding-left: 20px
@@ -150,8 +178,8 @@ li
       margin-left: -0.5em
 
 .education-container
-  li
-    margin: 20px 0
+  ul
+    margin: 15px 0
 
 .experience-container
   img
