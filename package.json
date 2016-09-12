@@ -13,8 +13,7 @@
     "cover": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --require ./tests/setup --recursive ./tests",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "eslint src",
-    "start": "node ./server.js -p 1337",
-    "server": "http-server ./dist",
+    "start": "http-server ./dist",
     "analyzer": "node_modules/.bin/webpack --json --config webpack.config.prod.js | cat > analyze.json",
     "analyze": "node_modules/.bin/webpack --config webpack.config.prod.js"
   },
@@ -24,6 +23,10 @@
       "app/icons",
       "test"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichardIvan/cv.git"
   },
   "author": "Richard Ivan",
   "license": "MIT",
@@ -39,17 +42,9 @@
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^1.1.1",
     "gulp-exit": "0.0.2",
-    "gulp-image-resize": "^0.7.2",
-    "gulp-imagemin": "^0.3.4",
-    "gulp-imageoptim": "^0.3.6",
     "gulp-jasmine-phantom": "^2.1.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.4",
-    "imagemin-pngquant": "^4.2.2"
-  },
-  "dependencies": {
-    "gulp-imageoptim": "^0.3.4",
-    "imageoptim-cli": "^1.11.6"
+    "gulp-uglify": "^1.5.4"
   }
 }
