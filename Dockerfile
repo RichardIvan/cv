@@ -1,4 +1,4 @@
-FROM gcr.io/google_appengine/nodejs
+FROM heroku/nodejs
 
 # ENV HOME /root
 # ENV DEBIAN_FRONTEND noninteractive
@@ -22,7 +22,7 @@ RUN mkdir ../nuclide \
 	&& cd ../nuclide \
 	&& git clone https://github.com/facebook/watchman.git \
 	&& cd watchman \
-	&& git checkout v4.6.0 \
+	&& git checkout v4.7.0 \
 	&& ./autogen.sh \
 	&& ./configure \
 	&& make && make install

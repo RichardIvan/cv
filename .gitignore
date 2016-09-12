@@ -6,3 +6,4 @@ server/private
 flow-typed
 analyze.json
 stats
+Dockerfile

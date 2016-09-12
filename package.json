@@ -40,7 +40,7 @@
     "gulp-eslint": "^1.1.1",
     "gulp-exit": "0.0.2",
     "gulp-image-resize": "^0.7.2",
-    "gulp-imagemin": "^2.4.0",
+    "gulp-imagemin": "^0.3.4",
     "gulp-imageoptim": "^0.3.6",
     "gulp-jasmine-phantom": "^2.1.2",
     "gulp-sass": "^2.3.2",
