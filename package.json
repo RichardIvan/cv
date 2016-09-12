@@ -2,15 +2,35 @@
   "name": "richard-ivan-cv",
   "version": "1.0.0",
   "description": "Richard Ivan's CV",
-  "main": "index.html",
+  "main": "server/index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --require ./tests/setup --require clarify --recursive ./tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js --verbose && rm -rf ./coverage",
+    "local-test": "node_modules/.bin/babel-node node_modules/.bin/_mocha --require=env-test --require mocha-clean/absolute_paths --require ./tests/setup --require clarify --recursive ./tests --color",
+    "local-test:watch": "npm run local-test -- --watch",
+    "cover": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --require ./tests/setup --recursive ./tests",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "lint": "eslint src",
+    "start": "node ./server.js -p 1337",
+    "server": "http-server ./dist",
+    "analyzer": "node_modules/.bin/webpack --json --config webpack.config.prod.js | cat > analyze.json",
+    "analyze": "node_modules/.bin/webpack --config webpack.config.prod.js"
+  },
+  "standard": {
+    "ignore": [
+      "build",
+      "app/icons",
+      "test"
+    ]
   },
   "author": "Richard Ivan",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RichardIvan/cv/issues"
+  },
+  "homepage": "https://github.com/RichardIvan/cv#readme",
   "devDependencies": {
     "browser-sync": "^2.15.0",
     "gulp": "^3.9.1",

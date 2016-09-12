@@ -1,0 +1,47 @@
+c{
+  "extends": "standard",
+  "rules": {
+    "camel_case": 2,
+    "no-commented-out-code": 2,
+    "no-long-files": 2,
+    "camel_case": 2,
+    "no-for-loops": 2,
+    "no-single-line-objects": 2,
+    "potential-point-free": 2
+  }
+  "parser": "babel-eslint",
+  "ecmaFeatures": {
+    "arrowFunctions": true,
+    "binaryLiterals": true,
+    "blockBindings": true,
+    "classes": true,
+    "defaultParams": true,
+    "destructuring": true,
+    "forOf": true,
+    "generators": true,
+    "modules": true,
+    "objectLiteralComputedProperties": true,
+    "objectLiteralDuplicateProperties": true,
+    "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
+    "octalLiterals": true,
+    "regexUFlag": true,
+    "regexYFlag": true,
+    "spread": true,
+    "superInFunctions": true,
+    "templateStrings": true,
+    "unicodeCodePointEscapes": true,
+    "globalReturn": true,
+    "jsx": false
+  },
+  "env": {
+    // I write for browser
+    "browser": true,
+    // in CommonJS
+    "node": true,
+    "es6": true
+  },
+  # "plugins": [
+  #   "babel"
+  # ]
+}
