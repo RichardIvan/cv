@@ -24,6 +24,10 @@
       "test"
     ]
   },
+  "engines": {
+    "node": "v6.2.2",
+    "npm": "3.9.5"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RichardIvan/cv.git"
