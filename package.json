@@ -15,7 +15,17 @@
     "lint": "eslint js",
     "start": "node ./server",
     "analyzer": "node_modules/.bin/webpack --json --config webpack.config.prod.js | cat > analyze.json",
-    "analyze": "node_modules/.bin/webpack --config webpack.config.prod.js"
+    "analyze": "node_modules/.bin/webpack --config webpack.config.prod.js",
+    "testava": "ava"
+  },
+  "ava": {
+    "files": [
+      "src/**/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   },
   "standard": {
     "ignore": [
@@ -39,6 +49,7 @@
   },
   "homepage": "https://github.com/RichardIvan/cv#readme",
   "devDependencies": {
+    "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.0.4",
