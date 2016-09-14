@@ -11,9 +11,13 @@ test:
   post:
     - docker run --name testcontainer circleci/testcontainer
     - docker cp testcontainer:/app/user/coverage/lcov.info $CIRCLE_ARTIFACTS
-    - bundle exec rake coveralls:push
+    - coveralls
 deployment:
   staging:
     branch: master
     heroku:
       appname: guarded-reaches-48742
+
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN
