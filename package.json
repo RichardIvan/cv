@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test": "nyc --reporter=lcov ava",
     "old_test": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --require ./tests/setup --require clarify --recursive ./tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js --verbose && rm -rf ./coverage",
     "local-test": "node_modules/.bin/babel-node node_modules/.bin/_mocha --require=env-test --require mocha-clean/absolute_paths --require ./tests/setup --require clarify --recursive ./tests --color",
     "local-test:watch": "npm run local-test -- --watch",
