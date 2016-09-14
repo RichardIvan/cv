@@ -4,9 +4,13 @@ machine:
   services:
     - docker
 dependencies:
-  override:
+  pre:
     - docker info
     - docker build -t circleci/testcontainer ./docker/test
+test:
+  post:
+    - docker run circleci/testcontainer
+    - docker cp circleci/testcontainer:/app/user/coverage/lcov.info $CIRCLE_ARTIFACTS
 deployment:
   staging:
     branch: master
