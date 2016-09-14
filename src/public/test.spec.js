@@ -1,11 +1,28 @@
-import test from 'ava';
+import test from 'ava'
 
-test('foo', t => {
-    t.pass();
-});
+import { demo, bro } from './demo'
 
-test('bar', async t => {
-    const bar = Promise.resolve('bar');
+// test('foo', t => {
+//     t.pass();
+// });
+//
+// test('bar', async t => {
+//     const bar = Promise.resolve('bar');
+//
+//     t.is(await bar, 'bar');
+// });
+//
+// test(t => {
+//     const a = /foo/;
+//     const b = 'bar';
+//     const c = 'baz';
+//     t.true(a.test(b) || b === c);
+// });
 
-    t.is(await bar, 'bar');
-});
+test(t => {
+  t.is(demo('hello'), 'hello')
+})
+
+test(t => {
+  t.true(bro())
+})
