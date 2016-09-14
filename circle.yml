@@ -10,7 +10,8 @@ dependencies:
 test:
   post:
     - docker run --name testcontainer circleci/testcontainer
-    - docker cp testcontainer:/app/user/coverage/lcov.info $CIRCLE_ARTIFACTS/coverage | coveralls
+    - docker cp testcontainer:/app/user/coverage/lcov.info $CIRCLE_ARTIFACTS/coverage
+    - cat $CIRCLE_ARTIFACTS/coverage | coveralls
 deployment:
   staging:
     branch: master
