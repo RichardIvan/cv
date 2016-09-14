@@ -45,4 +45,4 @@ RUN ln -s /usr/local/nvm/versions/node/v6.2.2/bin/node /usr/bin/node
 
 # Start ssh service
 # ENTRYPOINT ["/opt/startup.sh"]
-CMD cd /app/user/ && npm test
+CMD cd /app/user/ && npm run dockertest
