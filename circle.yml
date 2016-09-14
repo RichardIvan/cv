@@ -1,6 +1,10 @@
 machine:
   node:
     version: 6.2.2
+dependencies:
+  override:
+    - docker info
+    - docker build -t circleci/testcontainer ./docker/test
 deployment:
   staging:
     branch: master
