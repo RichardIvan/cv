@@ -1,5 +1,8 @@
-c{
-  "extends": "standard",
+{
+  "extends": [
+    "standard",
+    "plugin:ava/recommended"
+  ],
   "rules": {
     "camel_case": 2,
     "no-commented-out-code": 2,
@@ -41,7 +44,7 @@ c{
     "node": true,
     "es6": true
   },
-  # "plugins": [
-  #   "babel"
-  # ]
+  "plugins": [
+    "ava"
+  ]
 }
