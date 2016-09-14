@@ -6,5 +6,5 @@ export function demo(stuff: string): string {
 }
 
 export function bro() {
-  return false
+  return true
 }
