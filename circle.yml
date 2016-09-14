@@ -11,6 +11,7 @@ test:
   post:
     - docker run --name testcontainer circleci/testcontainer
     - docker cp testcontainer:/app/user/coverage/lcov.info $CIRCLE_ARTIFACTS
+    - bundle exec rake coveralls:push
 deployment:
   staging:
     branch: master
