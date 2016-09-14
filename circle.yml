@@ -1,6 +1,8 @@
 machine:
   node:
     version: 6.2.2
+  services:
+    - docker
 dependencies:
   override:
     - docker info
