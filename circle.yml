@@ -4,14 +4,16 @@ machine:
   services:
     - docker
 dependencies:
-  pre:
-    - docker info
-    - docker build -t circleci/testcontainer ./docker/test
+  override:
+    pre:
+      - docker info
+      - docker build -t circleci/testcontainer ./docker/test
 test:
-  post:
-    - docker run --name testcontainer circleci/testcontainer
-    - docker cp testcontainer:/app/user/coverage/lcov.info $CIRCLE_ARTIFACTS/coverage
-    - coveralls
+  override:
+    post:
+      - docker run --name testcontainer circleci/testcontainer
+      - docker cp testcontainer:/app/user/coverage/lcov.info $CIRCLE_ARTIFACTS/coverage
+      - coveralls $CIRCLE_ARTIFACTS/coverage/lcov.info
 deployment:
   staging:
     branch: master
