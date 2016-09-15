@@ -20,7 +20,7 @@ const response = `
   <style>
     ${styles}
   </style>
-/<head>
+<head>
 <body>
   <div class="page">
     <div class="page-container">
