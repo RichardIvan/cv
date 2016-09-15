@@ -45,7 +45,11 @@ module.exports = {
       minimize: true,
       debug: false
     }),
-    new webpack.BannerPlugin({banner: 'require("source-map-support").install();', raw: true, entryOnly: false }),
+    new webpack.BannerPlugin({
+      banner: 'require("source-map-support").install();',
+      raw: true,
+      entryOnly: false
+    }),
     // new webpack.optimize.UglifyJsPlugin({
     //   compressor: {
     //     warnings: false
