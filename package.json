@@ -19,7 +19,8 @@
     "analyzer": "node_modules/.bin/webpack --json --config webpack.config.prod.js | cat > analyze.json",
     "analyze": "node_modules/.bin/webpack --config webpack.config.prod.js",
     "testava": "ava",
-    "coverava": "nyc --reporter=lcov ava"
+    "coverava": "nyc --reporter=lcov ava",
+    "plop": "./node_modules/.bin/babel-node ./node_modules/plop/plop"
   },
   "ava": {
     "files": [
@@ -108,6 +109,7 @@
     "node-sass": "^3.8.0",
     "normalize.css": "^4.1.1",
     "nyc": "^8.1.0",
+    "plop": "^1.5.0",
     "postcss-cssnext": "^2.6.0",
     "postcss-loader": "^0.10.0",
     "precss": "^1.4.0",

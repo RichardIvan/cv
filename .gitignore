@@ -8,3 +8,5 @@ flow-typed
 analyze.json
 stats
 ./Dockerfile
+./plop
+./plopfile.js
