@@ -7,6 +7,6 @@ server/private
 flow-typed
 analyze.json
 stats
-./Dockerfile
-./plop
-./plopfile.js
+Dockerfile
+plop
+plopfile.js

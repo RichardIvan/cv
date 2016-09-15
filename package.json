@@ -15,7 +15,7 @@
     "cover": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --require ./tests/setup --recursive ./tests",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "eslint js",
-    "start": "node ./dist/server/js",
+    "start": "node ./dist/server/js/index.js",
     "analyzer": "node_modules/.bin/webpack --json --config webpack.config.prod.js | cat > analyze.json",
     "analyze": "node_modules/.bin/webpack --config webpack.config.prod.js",
     "testava": "ava",
