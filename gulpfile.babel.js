@@ -5,7 +5,7 @@ const gulp = require('gulp')
 // const concat = require('gulp-concat')
 // const uglify = require('gulp-uglify')
 const documentation = require('gulp-documentation')
-const sourcemaps = require('gulp-sourcemaps')
+// const sourcemaps = require('gulp-sourcemaps')
 const gutil = require('gulp-util')
 const shell = require('gulp-shell')
 const clean = require('gulp-clean')
@@ -21,15 +21,18 @@ const stream = require('webpack-stream')
 
 const webpackConfig = require('./webpack.config.prod.js')
 const webpackDevConfig = require('./webpack.config.dev.js')
+const webpackServerConfig = require('./webpack.config.server.js')
 // const webpackLocalDevConfig = require('./webpack.config.localdev.js')
 
 const path = {
   HTML: 'src/index.html',
   ALL: ['src/**/*.js'],
   MINIFIED_OUT: 'build.min.js',
-  DEST_SRC: 'dist/src',
-  DEST_BUILD: 'dist',
-  DEST: 'dist',
+  DEST_SRC: 'dist/src/client',
+  DEST_SRC_SERVER: 'dist/src/server',
+  DEST_BUILD: 'dist/client',
+  DEST_BUILD_SERVER: 'dist/server',
+  DEST: 'dist/client',
   TESTS: './tests/**/*.js'
 }
 
@@ -41,6 +44,12 @@ gulp.task('jscpd', () => gulp.src('src/*')
 )
 
 gulp.task('clean', () => gulp.src(path.DEST_BUILD,
+  {
+    read: false
+  }
+).pipe(clean()))
+
+gulp.task('clean-server', () => gulp.src(path.DEST_BUILD_SERVER,
   {
     read: false
   }
@@ -59,6 +68,21 @@ gulp.src(path.ALL)
   // .pipe(uglify())
   // .pipe(sourcemaps.write())
   .pipe(gulp.dest(path.DEST_BUILD))
+)
+
+gulp.task('webpack-server', [], () =>
+// gulp looks for all source files under specified path
+gulp.src(path.ALL)
+  // creates a source map which would be very helpful for debugging
+  // by maintaining the actual source code structure
+  // .pipe(sourcemaps.init())
+  // blend in the webpack config into the source files
+  .pipe(stream(webpackServerConfig, webpack))
+  // minifies the code for better compression
+  // .pipe(ignore.exclude([ "**/*.map" ]))
+  // .pipe(uglify())
+  // .pipe(sourcemaps.write())
+  .pipe(gulp.dest(path.DEST_BUILD_SERVER))
 )
 
 // function can use callback
@@ -139,7 +163,11 @@ gulp.task('docs', function () {
 })
 
 gulp.task('build', () => {
-  runSequence(['clean', 'test', 'jscpd'], 'webpack')
+  runSequence(['clean', 'jscpd'], 'webpack')
+})
+
+gulp.task('build-server', () => {
+  runSequence(['clean', 'jscpd'], 'webpack-server')
 })
 
 gulp.task('socket', () => gulp.src('', { read: false })
