@@ -11,7 +11,7 @@ import udacityLogo from '!url-loader!../../../img/udacity-logo-transparent.png'
 import googleLogo from '!url-loader!../../../img/google-logo-transparent.png'
 
 const response = `
-<!doctype html>
+<!doctype html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@ const response = `
   <style>
     ${styles}
   </style>
-<head>
+</head>
 <body>
   <div class="page">
     <div class="page-container">
@@ -170,7 +170,7 @@ const response = `
                   </li>
                 </ul>
                 <ul class=project-bullet>
-                  <li><span class="dash"></span>San Francisco Transportation application enabling users to find arrival and departure times for their desired transit destinations.</span></li>
+                  <li><span class="dash"></span>San Francisco Transportation application enabling users to find arrival and departure times for their desired transit destinations.</li>
                   <li><span class="dash"></span>All data available offline via service worker. Realtime endpoint used whenever possible.</li>
                 </ul>
               </li>
@@ -194,7 +194,7 @@ const response = `
             <h2>Education</h2>
             <ul>
               <li>
-                <h3><img width="12px" height="12px" src="${udacityLogo}" alt="" />Udacity | <span class="second-class">Senior Web Developer Nanodegree by <img width="12px" height="12px" src="${googleLogo}" alt="" />oogle</span></h3>
+                <h3><img width="12" height="12" src="${udacityLogo}" alt="" />Udacity | <span class="second-class">Senior Web Developer Nanodegree by <img width="12" height="12" src="${googleLogo}" alt="" />oogle</span></h3>
                 <p>Nov 2015 - Sept 2016</p>
               </li>
               <li>
@@ -232,7 +232,7 @@ const response = `
 
 app.get('/', (req, res) => {
   res.writeHead(200, {
-      'Content-Type': 'text/html'
+    'Content-Type': 'text/html'
   })
   res.write(response)
   res.end()
@@ -241,7 +241,6 @@ app.get('/', (req, res) => {
 app.listen(port, function () {
   console.log('Our app is running on http://localhost:' + port)
 })
-
 
 // console.log("About to dispatch a request for " + pathname);
 //  var content = "Hey " + pathname;
