@@ -8,6 +8,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const precss = require('precss')
 const autoprefixer = require('autoprefixer')
+const CustomHtmlPlugin = require('./webpack/html-custom-plugin')
+
+var Dashboard = require('webpack-dashboard');
+var DashboardPlugin = require('webpack-dashboard/plugin');
+var dashboard = new Dashboard();
 // var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 // var proxyMiddleware = require('http-proxy-middleware')
 
@@ -22,20 +27,17 @@ module.exports = {
   entry: {
 
     // s: './src/js/s.js',
-    index: './src/js/index.js',
-    'service-worker': './src/js/service-worker.js',
-    'dev-server': 'webpack-dev-server/client?https://0.0.0.0:443/',
+    index: './src/client/js/index.js',
+    // 'service-worker': './src/js/service-worker.js',
+    'dev-server': 'webpack-dev-server/client?https://0.0.0.0:443'
     // 'hot-dev-server': 'webpack/hot/only-dev-server',
   // common: [
   //   'lodash'
   //   // 'jquery'
   // ]
   },
-  proxy: {
-    '/data/*': 'http://localhost:1337/'
-  },
   output: {
-    path: path.join(__dirname, './dist'),
+    path: path.join(__dirname, './dist/client'),
     // Template based on keys in entry above
     filename: './js/[name].js'
   },
@@ -44,7 +46,7 @@ module.exports = {
     // modulesDirectories: [
     //   './node_modules'
     // ]
-    descriptionFiles: ["package.json"],
+    descriptionFiles: ['package.json'],
     modules: [
       path.resolve('./'),
       './node_modules'
@@ -53,11 +55,13 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/client/index.html'
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
     }),
+    new CustomHtmlPlugin(),
+    new DashboardPlugin(dashboard.setData),
     // new BrowserSyncPlugin(
     //   // BrowserSync options
     //   {
@@ -80,7 +84,7 @@ module.exports = {
     new ExtractTextPlugin({ filename: './css/main.css', allChunks: true }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
-    }),
+    })
   ],
   module: {
     loaders: [{
@@ -134,7 +138,7 @@ module.exports = {
       include: path.join(__dirname, './')
     }]
   },
-  // devServer: {
+  devServer: {
     // watchOptions: {
     //   aggregateTimeout: 300,
     //   poll: 300
@@ -157,10 +161,26 @@ module.exports = {
     //   // }
     //   }
     // }
-  // },
+    // proxy: {
+    //   '/html': {
+    //     target: 'https://192.168.99.100:8080',
+    //     bypass: (req, res, proxyOptions) => {
+    //       return '/'
+    //       res.send('omfg')
+    //       return
+    //       res.writeHead(200, {
+    //         'Content-Type': 'text/html'
+    //       })
+    //       res.write(html)
+    //       res.end()
+    //     }
+    //   },
+    //   '/data/*': 'http://localhost:1337/'
+    // }
+  },
   postcss () {
     return [precss, autoprefixer]
-  },
+  }
 // sassLoader: {
 //   includePaths: [path.resolve(__dirname, 'app')],
 // },

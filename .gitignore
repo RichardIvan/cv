@@ -4,6 +4,7 @@ coverage
 .imdone
 npm-debug.*
 server/private
+src/server/private
 flow-typed
 analyze.json
 stats

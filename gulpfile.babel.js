@@ -24,6 +24,8 @@ const webpackDevConfig = require('./webpack.config.dev.js')
 const webpackServerConfig = require('./webpack.config.server.js')
 // const webpackLocalDevConfig = require('./webpack.config.localdev.js')
 
+import { html } from './src/server/helpers/html'
+
 const path = {
   HTML: 'src/index.html',
   ALL: ['src/**/*.js'],
@@ -103,8 +105,8 @@ gulp.task('webpack-dev-server', () => {
     },
     host: '0.0.0.0',
     // port: 8080,
-    key: fs.readFileSync('./server/private/key.pem'),
-    cert: fs.readFileSync('./server/private/cert.pem'),
+    key: fs.readFileSync('./src/server/private/key.pem'),
+    cert: fs.readFileSync('./src/server/private/cert.pem'),
     stats: {
       colors: true,
       hash: false,
@@ -121,6 +123,22 @@ gulp.task('webpack-dev-server', () => {
       warnings: false,
       publicPath: false
     }
+    // proxy: {
+    //   '/html': {
+    //     target: 'https://192.168.99.100:8080',
+    //     bypass: (req, res, proxyOptions) => {
+    //       // return '/'
+    //       // res.send('omfg')
+    //       // return
+    //       res.writeHead(200, {
+    //         'Content-Type': 'text/html'
+    //       })
+    //       res.write(html)
+    //       res.end()
+    //     }
+    //   },
+    //   '/data/*': 'http://localhost:1337/'
+    // }
   }).listen(443, '0.0.0.0', (err) => {
     if (err) throw new gutil.PluginError('webpack-dev-server', err)
     gutil.log('[webpack-dev-server]', 'http://0.0.0.0:8080/webpack-dev-server/index.html')
