@@ -1,0 +1,229 @@
+body
+  height: 100%
+  width: 100%
+  display: flex
+  flex-direction: column
+  margin: 0
+  padding: 0
+  background-color: #FAFAFA
+  font: 12pt "Roboto"
+  color: #666666
+
+*
+  box-sizing: border-box
+  -moz-box-sizing: border-box
+
+@media (max-width: 766px)
+  .page
+    max-width: 21cm
+    max-height: 100 !important
+  .side-info
+    padding-right: 0 !important
+    transition: padding-right 100ms ease-in-out
+
+@media (max-width: 525px)
+  .page
+    margin: 0 !important
+  .info-container
+    flex-direction: column
+  .side-info
+    padding-right: 2em !important
+    padding-bottom: 0 !important
+  .main-info
+    padding-top: 0 !important
+
+.page
+  max-width: 21cm
+  width: 100%
+  min-height: 29.7cm
+  margin: 2cm auto 2cm
+  border: 1px #D3D3D3 solid
+  border-radius: 5px
+  background: #fff
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+  position: relative
+
+.page-container
+  position: relative
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+
+.header
+  align-items: center
+  display: flex
+  flex-direction: column
+
+  h1, h4
+    font-weight: 300
+
+  h1
+    font-size: 56px
+    margin: 15px 0 0
+
+  .first-name
+    font-weight: 200
+
+.info-container
+  height: 100%
+  display: flex
+  flex-wrap: wrap
+  margin-top: -23px
+
+.main-info, .side-info
+  padding: 2em
+
+.side-info
+  flex: 1
+
+.main-info
+  flex: 2
+  section
+    margin: 20px 0
+  section:first-child
+    margin: 0
+
+.side-info
+  section
+    margin-bottom: 2em
+
+h2, h4
+    margin: 0
+
+h2, h3
+  text-transform: uppercase
+
+h2
+  font-weight: 100
+  font-size: 25px
+
+h3, a, a:visited
+  font-weight: 400
+  color: lighten(black, 30%)
+  margin: 10px 0
+  font-size: 16px
+
+ul
+  list-style: none
+  padding: 0
+  font-size: 14px
+  font-weight: 300
+
+li
+  line-height: 1.3em
+
+.links-container
+  li
+    font-weight: 100
+  a, a:visited
+    font-weight: 300
+    font-size: 14px
+    text-decoration: none
+    color: lighten(black, 40%)
+    text-transform: lowercase
+  span
+    margin-left: 1em
+
+.skills-container
+  ul
+    display: flex
+    flex-wrap: wrap
+  li
+    margin-right: 3px
+  p
+    font-size: 12px
+
+.skills-container, .interests-container
+  li:before
+    content: '• '
+
+.language-row
+  display: flex
+
+  li:first-child
+    width: 6em
+
+.projects-container, .education-container, .experience-container
+  p
+    font-size: 13px
+    font-weight: 300
+    margin: 0 5px
+  img
+    margin-right: 2px
+  h3, a, a:visited
+    margin-bottom: 2px
+    font-size: 13px
+  h3>img:nth-child(1)
+    margin-right: 5px
+
+.project-heading
+  display: flex
+  align-items: center
+  flex-direction: row
+  position: relative
+  margin-right: 1em
+
+  h3
+    margin: 0
+    padding: 0
+
+  a
+    text-decoration: none
+
+  p
+    margin: 0
+    font-size: 12px
+  li
+    right: 0em
+    font-size: 13px
+
+  li:last-child
+    position: absolute
+
+
+.list-of-projects
+  padding-left: 40px
+  list-style: disc
+
+.single-project
+  margin-bottom: 1em
+  // li:before
+  //   padding-left: -3em
+
+
+  // li:first-child
+  //   padding-left: 0
+
+
+.project-bullet, .work-attributions
+  li
+    margin: 5px 0
+    padding-left: 20px
+    font-size: 12px
+    .dash:before
+      content: '- '
+      margin-left: -0.5em
+
+.education-container
+  ul
+    margin: 15px 0
+
+.experience-container
+  img
+    margin-right: 4px
+
+@page
+    size: A4
+    margin: 0
+
+@media print
+  .page
+    margin: 0
+    border: initial
+    border-radius: initial
+    width: initial
+    min-height: initial
+    box-shadow: initial
+    background: initial
+    page-break-after: always

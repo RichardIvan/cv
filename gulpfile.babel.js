@@ -24,7 +24,7 @@ const webpackDevConfig = require('./webpack.config.dev.js')
 const webpackServerConfig = require('./webpack.config.server.js')
 // const webpackLocalDevConfig = require('./webpack.config.localdev.js')
 
-import { html } from './src/server/helpers/html'
+// import { html } from './src/server/helpers/html'
 
 const path = {
   HTML: 'src/index.html',

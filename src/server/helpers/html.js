@@ -1,12 +1,13 @@
 /* @flow */
 'use strict'
 
-import sass from 'node-sass'
+import nodeSass from 'node-sass'
 import path from 'path'
 import { sync as DataURI } from 'datauri'
+const sass = path.resolve(path.join(__dirname, '../../../sass/main.sass'))
 
-const result = sass.renderSync({
-  file: path.join(__dirname, '../../../sass/main.sass')
+const result = nodeSass.renderSync({
+  file: sass
 })
 
 const styles = result.css
