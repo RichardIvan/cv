@@ -8,7 +8,7 @@ var port = process.env.PORT || 8080
 
 // import { html } from '../helpers/html'
 
-app.use('/', express.static('dist/server'))
+app.use('/', express.static('/'))
 
 // app.get('/', (req, res) => {
 //   res.writeHead(200, {
