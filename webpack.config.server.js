@@ -11,6 +11,8 @@ const precss = require('precss')
 const autoprefixer = require('autoprefixer')
 const Visualizer = require('webpack-visualizer-plugin')
 
+const CustomHtmlPlugin = require('./webpack/html-custom-plugin')
+
 const nodeModules = {}
 fs.readdirSync('node_modules')
   .filter(function (x) {
@@ -65,7 +67,7 @@ module.exports = {
       sourceMap: false
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/client/index.html'
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
@@ -74,6 +76,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
+    new CustomHtmlPlugin(),
     new Visualizer({filename: '../stats/stats.html'})
   ],
   resolveUrlLoader: {

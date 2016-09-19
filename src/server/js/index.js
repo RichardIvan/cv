@@ -12,10 +12,10 @@ import { html } from '../helpers/html'
 
 app.get('/', (req, res) => {
   res.writeHead(200, {
-    'Content-Type': 'text/html'
+    'Content-Length': html.length,
+    'Content-Type': 'text/html; charset=utf-8'
   })
-  res.write(html)
-  res.end()
+  res.end(html)
 })
 
 app.listen(port, function () {

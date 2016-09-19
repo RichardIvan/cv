@@ -14,8 +14,8 @@ module.exports = {
   devtool: 'hidden-source-map',
   entry: {
     // s: './src/js/s.js',
-    'service-worker': './src/js/service-worker.js',
-    index: './src/js/index.js'
+    // 'service-worker': './src/js/service-worker.js',
+    // index: './src/js/index.js'
   },
   output: {
     path: path.join(__dirname, './dist'),
@@ -24,7 +24,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.json'],
-    descriptionFiles: ["package.json"],
+    descriptionFiles: ['package.json'],
     modules: [
       path.resolve('./'),
       './node_modules'

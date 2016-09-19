@@ -12,7 +12,7 @@ const CustomHtmlPlugin = require('./webpack/html-custom-plugin')
 
 var Dashboard = require('webpack-dashboard');
 var DashboardPlugin = require('webpack-dashboard/plugin');
-var dashboard = new Dashboard();
+// var dashboard = new Dashboard();
 // var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 // var proxyMiddleware = require('http-proxy-middleware')
 
@@ -61,7 +61,7 @@ module.exports = {
       defaultAttribute: 'defer'
     }),
     new CustomHtmlPlugin(),
-    new DashboardPlugin(dashboard.setData),
+    // new DashboardPlugin(dashboard.setData),
     // new BrowserSyncPlugin(
     //   // BrowserSync options
     //   {
