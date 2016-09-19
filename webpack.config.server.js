@@ -25,6 +25,10 @@ fs.readdirSync('node_modules')
 module.exports = {
   devtool: 'hidden-source-map',
   target: 'node',
+  node: {
+    __dirname: false,
+    __filename: false
+  },
   entry: {
     index: './src/server/js/index.js'
   },

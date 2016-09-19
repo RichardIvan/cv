@@ -3,20 +3,21 @@
 
 var express = require('express')
 var app = express()
+// var path = require('path')
 
 var port = process.env.PORT || 8080
 
-// import { html } from '../helpers/html'
+import { html } from '../helpers/html'
 
-app.use('/', express.static('../'))
+// app.use('/', express.static('../'))
 
-// app.get('/', (req, res) => {
-//   res.writeHead(200, {
-//     'Content-Length': html.length,
-//     'Content-Type': 'text/html; charset=utf-8'
-//   })
-//   res.end(html)
-// })
+app.get('/', (req, res) => {
+  res.writeHead(200, {
+    'Content-Length': html.length,
+    'Content-Type': 'text/html; charset=utf-8'
+  })
+  res.end(html)
+})
 
 app.listen(port, function () {
   console.log('Our app is running on http://localhost:' + port)
